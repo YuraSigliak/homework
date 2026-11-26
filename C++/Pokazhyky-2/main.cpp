@@ -32,65 +32,63 @@ int main() {
                 cin >> *(B + i);
             }
 
-            int* C = new int[M + N];
+            int* temp = new int[M + N];
             int k = 0;
 
             for (int i = 0; i < M; i++) {
-                bool єВB = false;
-                bool єВC = false;
+                bool inB = false;
+                bool inTemp = false;
 
                 for (int j = 0; j < N; j++) {
                     if (*(A + i) == *(B + j)) {
-                        єВB = true;
+                        inB = true;
                         break;
                     }
                 }
 
                 for (int j = 0; j < k; j++) {
-                    if (*(A + i) == *(C + j)) {
-                        єВC = true;
+                    if (*(A + i) == *(temp + j)) {
+                        inTemp = true;
                         break;
                     }
                 }
 
-                if (choice == 1) {
-                    if (!єВB && !єВC) {
-                        *(C + k) = *(A + i);
-                        k++;
-                    }
-                }
-                else {
-                    if (!єВB && !єВC) {
-                        *(C + k) = *(A + i);
-                        k++;
-                    }
+                if (!inB && !inTemp) {
+                    *(temp + k) = *(A + i);
+                    k++;
                 }
             }
 
             if (choice == 2) {
                 for (int i = 0; i < N; i++) {
-                    bool єВA = false;
-                    bool єВC = false;
+                    bool inA = false;
+                    bool inTemp = false;
 
                     for (int j = 0; j < M; j++) {
                         if (*(B + i) == *(A + j)) {
-                            єВA = true;
+                            inA = true;
                             break;
                         }
                     }
 
                     for (int j = 0; j < k; j++) {
-                        if (*(B + i) == *(C + j)) {
-                            єВC = true;
+                        if (*(B + i) == *(temp + j)) {
+                            inTemp = true;
                             break;
                         }
                     }
 
-                    if (!єВA && !єВC) {
-                        *(C + k) = *(B + i);
+                    if (!inA && !inTemp) {
+                        *(temp + k) = *(B + i);
                         k++;
                     }
                 }
+            }
+
+            int* C = new int[k];
+
+            for (int i = 0; i < k; i++) {
+                *(C + i) = *(temp + i);
             }
 
             cout << "Третій масив: ";
@@ -104,6 +102,7 @@ int main() {
 
             delete[] A;
             delete[] B;
+            delete[] temp;
             delete[] C;
         }
 
