@@ -43,7 +43,7 @@ public:
             cin >> znamennyk;
 
             if (znamennyk == 0) {
-                cout << "Pomylka! Znamennyk ne mozhe buty 0.\\n";
+                cout << "Pomylka! Znamennyk ne mozhe buty 0.\n";
             }
         } while (znamennyk == 0);
 
@@ -96,13 +96,13 @@ public:
 int main() {
     Drob a, b, r;
 
-    cout << "Pershyi drob:\\n";
+    cout << "Pershyi drob:\n";
     a.vvesty();
 
-    cout << "\\nDrugyi drob:\\n";
+    cout << "\nDrugyi drob:\n";
     b.vvesty();
 
-    cout << "\\nDodaty: ";
+    cout << "\nDodaty: ";
     r = a.dodaty(b);
     r.vyvesty();
 
@@ -118,7 +118,7 @@ int main() {
     if (a.podilyty(b, r)) {
         r.vyvesty();
     } else {
-        cout << "Na nul dilyty ne mozhna!\\n";
+        cout << "Na nul dilyty ne mozhna!\n";
     }
 
     return 0;
